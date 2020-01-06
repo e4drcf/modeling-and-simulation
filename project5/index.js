@@ -109,12 +109,12 @@ let calculateFitness =  (genome) => {
 let generationNumber = 1;
 init();
 genomesPool.sort(((a, b) => (a.rate > b.rate) ? 1 : -1));
-while(genomesPool[0].rate!=0) {
+while(genomesPool[0].rate!==0) {
     generationNumber++;
     genomesPool.sort(((a, b) => (a.rate > b.rate) ? 1 : -1));
     bestGenome = Object.assign({},genomesPool[0]);
     for(let i=1; i<population;i++) {
-        genomesPool[parseInt(i)] = gemmation(bestGenome);
+        genomesPool[parseInt(i,10)] = gemmation(bestGenome);
     }
     genomesPool.forEach(genome => {
         genome.rate = calculateFitness(genome)
